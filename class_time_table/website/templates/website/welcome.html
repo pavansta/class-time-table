@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %} Welcome {% endblock %}
+
+{% block content %}
+
+<h1  class="row justify-content-md-center bg-waring ">CLASS TIME TABLE</h1>
+
+
+<div class="dropdown row justify-content-md-center bg-link-info ">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+   <h2 class="bg-info pt-0">DEPARTMENTS</h2>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="{% url 'department' %}">BCA</a></li>
+    <li><a class="dropdown-item" href="#">BBA</a></li>
+    <li><a class="dropdown-item" href="#">BCOM</a></li>
+  </ul>
+</div>
+
+{% endblock %}
