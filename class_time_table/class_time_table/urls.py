@@ -22,6 +22,6 @@ from website.views import welcome
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('department/', include('department.urls')),
-    path('', welcome),
+    path('', welcome, name='home'),
     path('accounts/', include('django.contrib.auth.urls'))
 ]
