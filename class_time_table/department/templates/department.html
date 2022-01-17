@@ -2,5 +2,43 @@
 {% block title %} Department {% endblock %}
 
 {% block content %}
-<h1>Department Page</h1>
+
+
+<h1>TIME TABLE</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">DAYS</th>
+            <th scope="col">PERIOD 1</th>
+            <th scope="col">PERIOD 2</th>
+            <th scope="col" >BREAK</th>
+            <th scope="col">PERIOD 3</th>
+            <th scope="col">PERIOD 4</th>
+            <th scope="col">LUNCH BREAK</th>
+            <th scope="col">PERIOD 5</th>
+            <th scope="col">PERIOD 6</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for day in time_table %}
+    <tr>
+        <th scope="row"> {{ day.name }}</th>
+        <td> {{ day.periods.period1 }}</td>
+        <td> {{ day.periods.period2 }}</td>
+        {% if forloop.counter == 1  %}
+            <td rowspan="5" style="transform: rotate(90deg);transform-origin: left top 0;"> BREAK </td>
+        {% endif %}
+        <td> {{ day.periods.period3 }}</td>
+        <td> {{ day.periods.period4 }}</td>
+        {% if forloop.counter == 1 %}
+            <td rowspan="5"></td>
+        {% endif %}
+        <td> {{ day.periods.period5 }}</td>
+        <td> {{ day.periods.period6 }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
 {% endblock %}
