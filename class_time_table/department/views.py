@@ -17,7 +17,7 @@ def index(request):
             }
         },
         {
-            'name': 'MONDAY',
+            'name': 'TUESDAY',
             'periods': {
                 'period1': 'kannada',
                 'period2': 'english',
@@ -28,7 +28,7 @@ def index(request):
             }
         },
         {
-            'name': 'MONDAY',
+            'name': 'WEDNESDAY',
             'periods': {
                 'period1': 'maths',
                 'period2': 'c p',
@@ -39,7 +39,7 @@ def index(request):
             }
         },
         {
-            'name': 'MONDAY',
+            'name': 'THURSDAY',
             'periods': {
                 'period1': ' d e ',
                 'period2': 'cultural',
@@ -50,7 +50,7 @@ def index(request):
             }
         },
         {
-            'name': 'Friday',
+            'name': 'FRIDAY',
             'periods': {
                 'period1': ' maths ',
                 'period2': 'kannada',
