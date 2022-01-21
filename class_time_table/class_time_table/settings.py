@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website',
     'lectures',
-    'department'
+    'department',
+    'subjects',
+    'periods',
+    'days'
 
 ]
 
