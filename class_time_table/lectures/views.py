@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Lecture
 
 
-def say_hello(req):
-    return HttpResponse('Hello World')
+def lectures(request):
+    all_lectures = Lecture.objects.all
+    return render(request, 'lectures.html', {'all': all_lectures})
+
