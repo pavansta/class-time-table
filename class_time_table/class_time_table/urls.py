@@ -25,5 +25,7 @@ urlpatterns = [
     path('', welcome, name='home'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('lectures/', include('lectures.urls')),
-    path('subjects/', include('subjects.urls'))
+    path('subjects/', include('subjects.urls')),
+    path('time-table/', include('time_table.urls'))
+
 ]

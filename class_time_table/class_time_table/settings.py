@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'department',
     'subjects',
     'periods',
-    'days'
+    'days',
+    'time_table'
 
 ]
 

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Table</title>
+</head>
+<body>
+{{ all }}
+<pre>{{ all | pprint }}</pre>
+{% for item in all %}
+    {{ item.subject.name }}<br>
+{% endfor %}
+</body>
+</html>
