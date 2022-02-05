@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %} time-table {% endblock %}
+
+{% block content %}
+
+
+<h1>TIME TABLE1</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">DAYS</th>
+            <th scope="col">PERIOD 1</th>
+            <th scope="col">PERIOD 2</th>
+            <th scope="col" >BREAK</th>
+            <th scope="col">PERIOD 3</th>
+            <th scope="col">PERIOD 4</th>
+            <th scope="col">LUNCH BREAK</th>
+            <th scope="col">PERIOD 5</th>
+            <th scope="col">PERIOD 6</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for day in time_table %}
+    <tr>
+        <th scope="row"> {{ day.name }}</th>
+        <td> {{ day.Period1 }}</td>
+        <td> {{ day.Period2 }}</td>
+        {% if forloop.counter == 1  %}
+            <td rowspan="5" style="transform: rotate(90deg);transform-origin: left top 0;"> BREAK </td>
+        {% endif %}
+        <td> {{ day.Period3 }}</td>
+        <td> {{ day.Period4 }}</td>
+        {% if forloop.counter == 1 %}
+            <td rowspan="5"></td>
+        {% endif %}
+        <td> {{ day.Period5 }}</td>
+        <td> {{ day.Period6 }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+<h1>TIME TABLE2</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">DAYS</th>
+            <th scope="col">PERIOD 1</th>
+            <th scope="col">PERIOD 2</th>
+            <th scope="col" >BREAK</th>
+            <th scope="col">PERIOD 3</th>
+            <th scope="col">PERIOD 4</th>
+            <th scope="col">LUNCH BREAK</th>
+            <th scope="col">PERIOD 5</th>
+            <th scope="col">PERIOD 6</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for day in table2 %}
+    <tr>
+        <th scope="row"> {{ day.name }}</th>
+        <td> {{ day.Period1 }}</td>
+        <td> {{ day.Period2 }}</td>
+        {% if forloop.counter == 1  %}
+            <td rowspan="5" style="transform: rotate(90deg);transform-origin: left top 0;"> BREAK </td>
+        {% endif %}
+        <td> {{ day.Period3 }}</td>
+        <td> {{ day.Period4 }}</td>
+        {% if forloop.counter == 1 %}
+            <td rowspan="5"></td>
+        {% endif %}
+        <td> {{ day.Period5 }}</td>
+        <td> {{ day.Period6 }}</td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+
+
+<h1>TIME TABLE3</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">DAYS</th>
+            <th scope="col">PERIOD 1</th>
+            <th scope="col">PERIOD 2</th>
+            <th scope="col" >BREAK</th>
+            <th scope="col">PERIOD 3</th>
+            <th scope="col">PERIOD 4</th>
+            <th scope="col">LUNCH BREAK</th>
+            <th scope="col">PERIOD 5</th>
+            <th scope="col">PERIOD 6</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for day in table3 %}
+    <tr>
+        <th scope="row"> {{ day.name }}</th>
+        <td> {{ day.Period1 }}</td>
+        <td> {{ day.Period2 }}</td>
+        {% if forloop.counter == 1  %}
+            <td rowspan="5" style="transform: rotate(90deg);transform-origin: left top 0;"> BREAK </td>
+        {% endif %}
+        <td> {{ day.Period3 }}</td>
+        <td> {{ day.Period4 }}</td>
+        {% if forloop.counter == 1 %}
+            <td rowspan="5"></td>
+        {% endif %}
+        <td> {{ day.Period5 }}</td>
+        <td> {{ day.Period6 }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+
+{% endblock %}
+</body>
+</html>

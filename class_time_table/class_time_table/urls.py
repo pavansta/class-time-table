@@ -27,5 +27,4 @@ urlpatterns = [
     path('lectures/', include('lectures.urls')),
     path('subjects/', include('subjects.urls')),
     path('time-table/', include('time_table.urls'))
-
 ]

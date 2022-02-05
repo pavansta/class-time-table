@@ -63,4 +63,4 @@ def index(request):
 
     ]
     return render(request, "department.html", {'time_table': time_table})
-# Create your views here.
+
