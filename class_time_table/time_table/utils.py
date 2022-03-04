@@ -5,14 +5,22 @@ def create_table(odays, operiods, osubjects):
     subjects = []
     periods = []
     days = []
+    play = {}
+    library = {}
     for i, val in enumerate(odays):
         days.append(val)
     for i, val in enumerate(operiods):
         periods.append(val)
     for i, val in enumerate(osubjects):
-        subjects.append(val)
+        if val['name'] == 'Play':
+            play = val
+        elif val['name'] == 'Library':
+            library = val
+        else:
+            subjects.append(val)
     sub = subjects
     time_table = []
+    table_db = []
     period = ''
     subj = ''
 
@@ -21,17 +29,16 @@ def create_table(odays, operiods, osubjects):
         day = {'name': val['name']}
         for ppi, pval in enumerate(periods):
             if ppi == 5 and i % 2 == 0:
-                period = pval['name']
-                subj = 'Play'
+                subj = play
             elif ppi == 4 and i % 2 == 1:
-                period = pval['name']
-                subj = 'Library'
-            elif ppi == 5:
-                period = pval['name']
-                subj = sub[ppi - 1]['name']
+                subj = library
+            elif ppi == 5 and i % 2 == 1:
+                subj = sub[ppi - 1]
             else:
-                period = pval['name']
-                subj = sub[ppi]['name']
+                subj = sub[ppi]
+            period = pval['name']
             day[period] = subj
+            row = {'department': val['id'], 'day': val['id'], 'period': pval['id'], 'subject': subj['id']}
+            table_db.append(row)
         time_table.append(day)
-    return time_table
+    return { 'display_table': time_table, 'db_table': table_db }
