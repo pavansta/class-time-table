@@ -37,7 +37,7 @@ def create_table(odays, operiods, osubjects):
             else:
                 subj = sub[ppi]
             period = pval['name']
-            day[period] = subj
+            day[period] = subj['name']
             row = {'department': val['id'], 'day': val['id'], 'period': pval['id'], 'subject': subj['id']}
             table_db.append(row)
         time_table.append(day)

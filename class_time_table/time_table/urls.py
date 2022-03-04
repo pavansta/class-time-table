@@ -5,7 +5,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='time_table'),
-    path('data', views.details, name='table-details'),
-    path('', views.index, name='time-table'),
-    path('submit', views.submit, name='save-time-table')
+    path('submit', views.submit, name='save-time-table'),
+    path('delete', views.delete_everything, name='delete-time-table')
 ]

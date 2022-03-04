@@ -2,7 +2,11 @@
 {% block title %} time-table {% endblock %}
 
 {% block content %}
-<a href="{% url 'time-table' %}"><button type="button">Refresh</button></a>
+{% if is_db == False %}
+    <a href="{% url 'time-table' %}"><button type="button">Refresh</button></a>
+{% else %}
+    <button onclick="deleteTable()"> Delete Time table</button>
+{% endif %}
 
 
 <h1 style="color: red;">TIME TABLE</h1>
@@ -24,46 +28,56 @@
     {% for day in time_table %}
     <tr>
         <th scope="row"> {{ day.name }}</th>
-        <td> {{ day.Period1.name }}</td>
-        <td> {{ day.Period2.name }}</td>
+        <td> {{ day.Period1 }}</td>
+        <td> {{ day.Period2 }}</td>
         {% if forloop.counter == 1  %}
             <td rowspan="5" style="transform: rotate(90deg);transform-origin: left top 0;"> BREAK </td>
         {% endif %}
-        <td> {{ day.Period3.name }}</td>
-        <td> {{ day.Period4.name }}</td>
+        <td> {{ day.Period3 }}</td>
+        <td> {{ day.Period4 }}</td>
         {% if forloop.counter == 1 %}
             <td rowspan="5"></td>
         {% endif %}
-        <td> {{ day.Period5.name }}</td>
-        <td> {{ day.Period6.name }}</td>
+        <td> {{ day.Period5 }}</td>
+        <td> {{ day.Period6 }}</td>
     </tr>
     {% endfor %}
     </tbody>
 
 </table>
 {% load static %}
-<button type="button" onclick="sendData({{db_table}})"><sp> SAVE </sp></button>
+{% if is_db == False %}
+    <button type="button" onclick="sendData({{db_table}})"><sp> SAVE </sp></button>
+{% endif %}
 <script src="{% static "jquery-3.6.0.min.js" %}"></script>
 <script>
 function sendData(data) {
-    console.log(data);
     $.ajax({
         type: 'POST',
         url: "/time-table/submit",
         contentType: 'application/json',
         data: JSON.stringify(data),
-        dataType: "json"
-    });
-  /** var xhr = new XMLHttpRequest();
-    xhr.open("POST", '/time-table/submit', true);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function() {
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            // Request finished. Do processing here.
+        dataType: "json",
+        success: function(data) {
+            location.reload(true);
+        },
+        error: function() {
+            alert('Error occured');
         }
-    }
-    xhr.send({"data": data});**/
+    });
+}
+
+function deleteTable() {
+    $.ajax({
+        type: 'GET',
+        url: "/time-table/delete",
+        success: function(data) {
+            location.reload(true);
+        },
+        error: function() {
+            alert('Error occured');
+        }
+    });
 }
 </script>
 
